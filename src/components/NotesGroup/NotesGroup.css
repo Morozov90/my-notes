@@ -1,0 +1,6 @@
+.NotesGroup {
+    flex: 1 1 33%;
+    border-right: 1px solid #000000;
+    height: 100%;
+    background: #eeeeee;
+}

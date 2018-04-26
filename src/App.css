@@ -1,0 +1,11 @@
+.App {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.Content {
+  display: flex;
+  justify-content: space-around;
+  height: 95vh;
+}
+
