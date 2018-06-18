@@ -9,19 +9,21 @@ import Header from "./components/Header/Header";
 import {connect} from "react-redux";
 
 class App extends Component {
+    textpole = React.createRef();
   
   render() {
+    
     let groups;
     if (this.props.isOpened){
         groups = <NotesGroup/>
     }
     return (
       <div className="App">
-        <Header/>
+        <Header pole={this.textpole}/>
         <div className="Content">
              { groups }
             <Notes/>
-            <Note/>
+            <Note pole={this.textpole} />
         </div>
       </div>
     );
@@ -33,4 +35,3 @@ export default connect(
     isOpened: state.toggle,
   })
 )(App);
-

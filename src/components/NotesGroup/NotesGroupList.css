@@ -9,6 +9,34 @@
 }
 
 .NotesGroupList ul li{
+    display: flex;
     list-style-type: none;
     padding: 10px;
+}
+
+.NotesGroupList ul li.editing .title{
+    display: none;
+}
+
+.NotesGroupList ul li .title{
+    margin-right: auto;
+}
+
+.NotesGroupList ul li .textfield{
+
+    margin-right: auto;
+    display: none;
+}
+
+.NotesGroupList ul li.editing .textfield{
+    display: block;
+}
+
+.NotesGroupList ul li button{
+    opacity: 0;
+    transition: all .2s;
+}
+
+.NotesGroupList ul li:hover button{
+    opacity: 1;
 }

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './NotesGroup.css';
 import NotesGroupList from "./NotesGroupList";
 import { connect } from 'react-redux';
+import { addNoteGroup } from '../../reducers/notesGroup';
+import  shortid  from 'shortid';
 
 class NotesGroup extends Component {
     constructor(props){
@@ -11,24 +13,16 @@ class NotesGroup extends Component {
     }
     
     addNoteGroup(e) {
-        e.preventDefault();
-        this.props.onAddNoteGroup(this.notesGropInput.value);
-        this.notesGropInput.value = "";
+        this.props.onAddNoteGroup();
     }
     
     render () {
         return (
             <div className="NotesGroup">
-                    <label>
-                        Имя группы
-                        <input
-                            type="text"
-                            ref={(input) => {this.notesGropInput = input}}
-                        />
-                    </label>
-                    <button onClick={this.addNoteGroup}>
-                        Add
-                    </button>
+                <div className="NotesGroup__button" onClick={this.addNoteGroup}>
+                    <span>+</span>
+                    Новая папка
+                </div>
                 <NotesGroupList notesGroup={this.props.notesGroup} />
             </div>
         );
@@ -40,12 +34,12 @@ export default connect(
         notesGroup: state.notesGroup
     }),
     dispatch => ({
-        onAddNoteGroup: (noteGroupName) => {
+        onAddNoteGroup: () => {
             const noteGroupNames = {
-                id: Date.now().toString(),
-                noteGroupName
+                id: shortid.generate(),
+                noteGroupName: 'Новая папка'
             };
-            dispatch({ type: 'ADD_NOTE_GROUP', addNoteGroup: noteGroupNames })
+            dispatch(addNoteGroup(noteGroupNames));
         }
     })
 )(NotesGroup);

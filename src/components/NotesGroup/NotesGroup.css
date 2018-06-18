@@ -3,4 +3,19 @@
     border-right: 1px solid #000000;
     height: 100%;
     background: #eeeeee;
+    position: relative;
+}
+
+.NotesGroup__button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.NotesGroup__button span {
+    background: #c0c0c0;
+    padding: 1px 5px;
+    border-radius: 100%;
+    color: #eeeeee;
+    margin-right: 7px;
 }

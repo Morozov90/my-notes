@@ -1,6 +1,15 @@
-export default function toggle(state = true, action) {
-    if (action.type === 'CHANGE_STATE') {
-        return action.changeState;
+const CHANGE_STATE = 'CHANGE_STATE';
+
+export const changeState = (param) => ({
+    type: CHANGE_STATE,
+    payload: param
+})
+
+export default function notesGroup(state = true, action) {
+    switch (action.type ) {
+        case CHANGE_STATE: {
+            return action.payload;
+        }
+        default : return state;
     }
-    return state;
 }

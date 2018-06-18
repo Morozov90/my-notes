@@ -9,6 +9,24 @@
 }
 
 .NotesList ul li{
+    display: flex;
     list-style-type: none;
     padding: 10px;
+}
+
+.note__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: auto;
+    width: 80%;
+}
+
+.NotesList ul li button{
+    opacity: 0;
+    transition: all .2s;
+}
+
+.NotesList ul li:hover button{
+    opacity: 1;
 }
